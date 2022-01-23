@@ -29,7 +29,7 @@ export default function LoginForm({ onSubmit }: TProps) {
     formState: { errors },
   } = useForm({ resolver: loginValidation });
 
-  const forwardSubmit = async (data: TCredentials) => {
+  const forwardSubmit = async (data: any) => {
     onOpen();
     if (onSubmit) {
       await onSubmit(data);
@@ -60,7 +60,7 @@ export default function LoginForm({ onSubmit }: TProps) {
             w="100%"
             defaultValue=""
             readOnly={!!!onSubmit}
-            placeholder="email.corporativo@playkids.com"
+            placeholder="seu-email@mail.com"
             {...register("username", { required: true })}
           />
           <FormErrorMessage>{errors.username?.message}</FormErrorMessage>

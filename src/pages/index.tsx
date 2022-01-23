@@ -8,7 +8,7 @@ const pageTagsProps = {
 
 const Home = () => {
   return (
-    <PageLayout>
+    <PageLayout withAuth>
       <PageTags {...pageTagsProps} />
     </PageLayout>
   );
