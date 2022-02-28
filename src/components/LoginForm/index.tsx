@@ -52,7 +52,7 @@ export default function LoginForm({ onSubmit }: TProps) {
         <Image src={logo} alt="logo" draggable={false} />
       </Box>
       <form onSubmit={handleSubmit(forwardSubmit)}>
-        <FormControl isInvalid={errors.username} mb={8}>
+        <FormControl isInvalid={errors.email} mb={8}>
           <FormLabel color="blue.500" fontWeight="bold">
             Usuário
           </FormLabel>
@@ -61,9 +61,9 @@ export default function LoginForm({ onSubmit }: TProps) {
             defaultValue=""
             readOnly={!!!onSubmit}
             placeholder="seu-email@mail.com"
-            {...register("username", { required: true })}
+            {...register("email", { required: true })}
           />
-          <FormErrorMessage>{errors.username?.message}</FormErrorMessage>
+          <FormErrorMessage>{errors.email?.message}</FormErrorMessage>
         </FormControl>
 
         <FormControl isInvalid={errors.password}>

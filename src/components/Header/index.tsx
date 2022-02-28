@@ -7,9 +7,12 @@ import MobileMenu from "./MobileMenu";
 import { navigation } from "./constants";
 import Brand from "@components/Brand";
 import { useRouter } from "next/router";
+import { useSession, signOut } from "next-auth/react";
 
 export default function Header() {
   const router = useRouter();
+
+  const { status } = useSession();
 
   return (
     <Flex
@@ -63,11 +66,34 @@ export default function Header() {
             ))}
           </Flex>
 
-          <Button h="59px" href="#">
-            Call To Action
-          </Button>
+          <Flex>
+            <Button h="59px" href="#">
+              Call To Action
+            </Button>
+            {status === "authenticated" && (
+              <Button
+                ml={2}
+                colorScheme="red"
+                onClick={() => signOut()}
+                h="59px"
+                href="#"
+              >
+                Sign Out
+              </Button>
+            )}
+          </Flex>
         </Flex>
       </Container>
     </Flex>
   );
 }
+
+// {
+//   user: {
+//     id: number;
+//     name: string;
+//     email: string;
+//   };
+//   token: string;
+//   expires: string;
+// }
