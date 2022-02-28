@@ -12,8 +12,9 @@ import { useSession, signOut } from "next-auth/react";
 export default function Header() {
   const router = useRouter();
 
-  const { status } = useSession();
+  const { status, data } = useSession();
 
+  console.log({ data });
   return (
     <Flex
       as="header"

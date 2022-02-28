@@ -17,8 +17,7 @@ export default NextAuth({
             if (token) {
               return {
                 token,
-                ...user,
-                access_token: token,
+                user,
               };
             }
           } catch (error) {
@@ -40,13 +39,15 @@ export default NextAuth({
   callbacks: {
     async jwt({ token, user }) {
       if (user) {
-        token.accessToken = user.access_token;
+        token.user = user.user;
+        token.jwt = user.token;
       }
       return token;
     },
     async session({ session, token }) {
-      if (token.accessToken) {
-        session.token = token.accessToken;
+      if (token.jwt) {
+        session.jwt = token.jwt;
+        session.user = token.user;
       }
       return session;
     },
