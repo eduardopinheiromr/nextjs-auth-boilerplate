@@ -4,7 +4,7 @@
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
-    "strict": true,
+    // "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "esModuleInterop": true,
@@ -15,17 +15,20 @@
     "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
-      "@utils/*": ["src/utils/*"],
-      "@services/*": ["src/services/*"],
+      "@modules/*": ["src/modules/*"],
+      "@shared/*": ["src/modules/shared/*"],
+      "@utils/*": ["src/modules/shared/utils/*"],
+      "@services/*": ["src/modules/shared/services/*"],
       "@mocks/*": ["src/mocks/*"],
-      "@hooks/*": ["src/hooks/*"],
+      "@hooks/*": ["src/modules/shared/hooks/*"],
       "@i18n/*": ["src/i18n/*"],
       "@config/*": ["src/config/*"],
       "@theme/*": ["src/theme/*"],
-      "@components/*": ["src/components/*"],
+      "@components/*": ["src/modules/shared/components/*"],
       "@images/*": ["public/images/*"]
     },
-    "incremental": true
+    "incremental": true,
+    "strict": false
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]

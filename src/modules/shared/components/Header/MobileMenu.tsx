@@ -1,10 +1,10 @@
 import Link from "next/link";
 import { Grid, Box, Flex, Collapse } from "@chakra-ui/react";
 import { useDisclosure } from "@chakra-ui/hooks";
-import Button from "@components/Button";
+import Button from "@modules/shared/components/Button";
 import MenuToggle from "./MenuToggle";
 import { navigation } from "./constants";
-import { isBrowser } from "@utils/isBrowser";
+import { isBrowser } from "@modules/shared/utils/isBrowser";
 import { useRouter } from "next/router";
 
 export default function MobileMenu() {

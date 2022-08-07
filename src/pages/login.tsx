@@ -1,5 +1,5 @@
 import { Flex, useToast } from "@chakra-ui/react";
-import LoginForm from "@components/LoginForm";
+import LoginForm from "@modules/auth/components/LoginForm";
 
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/router";
@@ -28,7 +28,7 @@ export default function Login() {
         title: "Falha no login",
         description: "Verifique os dados digitados e tente novamente",
         status: "error",
-        position: "bottom-end",
+        position: "bottom-right",
       });
     } else {
       if (router.query.intent) {

@@ -7,12 +7,11 @@ import {
   useDisclosure,
 } from "@chakra-ui/react";
 import { useSession } from "next-auth/react";
-import React from "react";
 import { useForm } from "react-hook-form";
 import loginValidation from "./loginValidation";
 import Image from "next/image";
 import logo from "@images/logo.svg";
-import Button from "@components/Button";
+import Button from "@modules/shared/components/Button";
 
 type TProps = {
   onSubmit?: (credentials: TCredentials) => void;
@@ -27,7 +26,7 @@ export default function LoginForm({ onSubmit }: TProps) {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({ resolver: loginValidation });
+  } = useForm({ resolver: loginValidation, mode: "onChange" });
 
   const forwardSubmit = async (data: any) => {
     onOpen();
@@ -52,7 +51,7 @@ export default function LoginForm({ onSubmit }: TProps) {
         <Image src={logo} alt="logo" draggable={false} />
       </Box>
       <form onSubmit={handleSubmit(forwardSubmit)}>
-        <FormControl isInvalid={errors.email} mb={8}>
+        <FormControl isInvalid={Boolean(errors.email)} mb={8}>
           <FormLabel color="blue.500" fontWeight="bold">
             Usuário
           </FormLabel>
@@ -63,10 +62,10 @@ export default function LoginForm({ onSubmit }: TProps) {
             placeholder="seu-email@mail.com"
             {...register("email", { required: true })}
           />
-          <FormErrorMessage>{errors.email?.message}</FormErrorMessage>
+          {/* <FormErrorMessage>{errors.email?.message}</FormErrorMessage> */}
         </FormControl>
 
-        <FormControl isInvalid={errors.password}>
+        <FormControl isInvalid={Boolean(errors.password)}>
           <FormLabel color="blue.500" fontWeight="bold">
             Senha
           </FormLabel>
@@ -78,7 +77,7 @@ export default function LoginForm({ onSubmit }: TProps) {
             readOnly={!!!onSubmit}
             {...register("password", { required: true })}
           />
-          <FormErrorMessage>{errors.password?.message}</FormErrorMessage>
+          {/* <FormErrorMessage>{errors.password?.message}</FormErrorMessage> */}
         </FormControl>
 
         <Button

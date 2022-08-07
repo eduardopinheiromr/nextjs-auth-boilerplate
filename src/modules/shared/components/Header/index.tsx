@@ -1,11 +1,10 @@
 import Link from "next/link";
-import { Box, Flex } from "@chakra-ui/layout";
-import Container from "@components/layouts/Container";
-import Button from "@components/Button";
+import { Box, Flex, Container } from "@chakra-ui/layout";
+import Button from "@modules/shared/components/Button";
 import MobileMenu from "./MobileMenu";
 
 import { navigation } from "./constants";
-import Brand from "@components/Brand";
+import Brand from "@modules/shared/components/Brand";
 import { useRouter } from "next/router";
 import { useSession, signOut } from "next-auth/react";
 
@@ -27,7 +26,6 @@ export default function Header() {
     >
       <Container
         as="nav"
-        d="flex"
         flexDirection={["column", "column", "row"]}
         alignItems="center"
         p={0}
@@ -39,7 +37,7 @@ export default function Header() {
 
         <Flex
           ml={4}
-          d={["none", "none", "flex"]}
+          display={["none", "none", "flex"]}
           w="full"
           align="center"
           justify="space-between"

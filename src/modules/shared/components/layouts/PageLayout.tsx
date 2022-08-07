@@ -1,9 +1,8 @@
 import { ReactNode } from "react";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
-import Header from "@components/Header";
-import { Box, Flex, Spinner } from "@chakra-ui/react";
-import LoadingScreen from "@components/LoadingScreen";
+import Header from "@modules/shared/components/Header";
+import LoadingScreen from "@modules/shared/components/LoadingScreen";
 
 type PageLayoutProps = {
   children: ReactNode;

@@ -1,5 +1,5 @@
 import { AnimatePresence } from "framer-motion";
-import { useOnScreen } from "@hooks/useOnScreen";
+import { useOnScreen } from "@modules/shared/hooks/useOnScreen";
 import { Box } from "@chakra-ui/layout";
 import { useRef } from "react";
 
